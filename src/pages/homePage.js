@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
-import Header from "../components/headerMovieList";
-import FilterCard from "../components/filterMoviesCard";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-import MovieList from "../components/movieList";
-import Fab from "@material-ui/core/Fab";
-import Drawer from "@material-ui/core/Drawer";
+import React, { useState, useEffect } from 'react';
+import Header from '../components/headerMovieList';
+import FilterCard from '../components/filterMoviesCard';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+import MovieList from '../components/movieList';
+import Fab from '@material-ui/core/Fab';
+import Drawer from '@material-ui/core/Drawer';
 
-const useStyles = makeStyles((theme) =>  ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "20px",
+    padding: '20px',
   },
   fab: {
     marginTop: theme.spacing(8),
-    position: "fixed",
+    position: 'fixed',
     top: theme.spacing(2),
     right: theme.spacing(2),
   },
@@ -22,11 +22,18 @@ const useStyles = makeStyles((theme) =>  ({
 const MovieListPage = (props) => {
   const classes = useStyles();
   const [movies, setMovies] = useState([]);
-  const [titleFilter, setTitleFilter] = useState("");
-  const [genreFilter, setGenreFilter] = useState("0");
+  const [titleFilter, setTitleFilter] = useState('');
+  const [genreFilter, setGenreFilter] = useState('0');
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const genreId = Number(genreFilter);
+
+  const addToFavourites = (movieId) => {
+    const updatedMovies = movies.map((m) =>
+      m.id === movieId ? { ...m, favourite: true } : m
+    );
+    setMovies(updatedMovies);
+  };
 
   let displayedMovies = movies
     .filter((m) => {
@@ -37,7 +44,7 @@ const MovieListPage = (props) => {
     });
 
   const handleChange = (type, value) => {
-    if (type === "title") setTitleFilter(value);
+    if (type === 'title') setTitleFilter(value);
     else setGenreFilter(value);
   };
 
@@ -58,24 +65,27 @@ const MovieListPage = (props) => {
 
   return (
     <>
-    <Grid container className={classes.root}>
-      <Grid item xs={12}>
-        <Header title={"Home Page"} />
+      <Grid container className={classes.root}>
+        <Grid item xs={12}>
+          <Header title={'Home Page'} />
+        </Grid>
+        <Grid item container spacing={5}>
+          <MovieList
+            movies={displayedMovies}
+            selectFavourite={addToFavourites}
+          />
+        </Grid>
       </Grid>
-      <Grid item container spacing={5}>
-        <MovieList movies={displayedMovies}></MovieList>
-      </Grid>
-    </Grid>
-    <Fab
-        color="secondary"
-        variant="extended"
+      <Fab
+        color='secondary'
+        variant='extended'
         onClick={() => setDrawerOpen(true)}
         className={classes.fab}
       >
         Filter
       </Fab>
       <Drawer
-        anchor="left"
+        anchor='left'
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       >
