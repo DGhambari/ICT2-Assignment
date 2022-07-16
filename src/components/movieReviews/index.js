@@ -27,7 +27,7 @@ export default function MovieReviews({ movie }) {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="reviews table">
