@@ -17,23 +17,23 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   appbar: {
-
+    backgroundColor: "#080426",
   },
   inactiveLink: {
-    color: 'white',
-    padding : theme.spacing(1),
-    fontSize: '1.5rem'
+    color: "white",
+    padding: theme.spacing(1),
+    fontSize: "1.5rem",
   },
   activeLink: {
-    color: 'black',
-    padding : theme.spacing(1),
-    fontSize: '1.5rem',
-  }
+    color: "black",
+    padding: theme.spacing(1),
+    fontSize: "1.5rem",
+  },
 }));
 
 const SiteHeader = () => {
   const classes = useStyles();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -55,30 +55,34 @@ const SiteHeader = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  return ( 
+  return (
     <>
-      <AppBar className={classes.appbar}
-      position="fixed" elevation={0} color='secondary'> 
+      <AppBar
+        className={classes.appbar}
+        position='fixed'
+        elevation={0}
+        color='secondary'
+      >
         <Toolbar>
-          <Typography variant="h4" className={classes.title}>
+          <Typography variant='h4' className={classes.title}>
             TMDB Client
           </Typography>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant='h6' className={classes.title}>
             All you ever wanted to know about Movies!
           </Typography>
           {isMobile ? (
             <>
               <IconButton
-                aria-label="menu"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
+                aria-label='menu'
+                aria-controls='menu-appbar'
+                aria-haspopup='true'
                 onClick={handleMenu}
-                color="inherit"
+                color='inherit'
               >
                 <MenuIcon />
               </IconButton>
               <Menu
-                id="menu-appbar"
+                id='menu-appbar'
                 anchorEl={anchorEl}
                 anchorOrigin={{
                   vertical: "top",
@@ -109,13 +113,12 @@ const SiteHeader = () => {
                   key={opt.label}
                   to={opt.path}
                   className={({ isActive }) =>
-                  isActive ? classes.activeLink : classes.inactiveLink
-                }
-                  color="inherit"
-
+                    isActive ? classes.activeLink : classes.inactiveLink
+                  }
+                  color='inherit'
                 >
                   {opt.label}
-                </NavLink> 
+                </NavLink>
               ))}
             </>
           )}
