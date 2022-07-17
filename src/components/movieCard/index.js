@@ -1,34 +1,41 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardHeader from '@material-ui/core/CardHeader';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import CalendarIcon from '@material-ui/icons/CalendarTodayTwoTone';
-import StarRateIcon from '@material-ui/icons/StarRate';
-import IconButton from '@material-ui/core/IconButton';
-import Grid from '@material-ui/core/Grid';
-import { Link } from 'react-router-dom';
-import Avatar from '@material-ui/core/Avatar';
+import React, { useContext } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardHeader from "@material-ui/core/CardHeader";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
+import StarRateIcon from "@material-ui/icons/StarRate";
+import IconButton from "@material-ui/core/IconButton";
+import Grid from "@material-ui/core/Grid";
+import { Link } from "react-router-dom";
+import Avatar from "@material-ui/core/Avatar";
+import { MoviesContext } from "../../contexts/moviesContext";
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
   media: { height: 500 },
   avatar: {
-    backgroundColor: 'rgb(255, 0, 0)',
+    backgroundColor: "rgb(255, 0, 0)",
   },
 });
 
-export default function MovieCard(props) {
+export default function MovieCard({ movie }) {
   const classes = useStyles();
-  const movie = props.movie;
+  const { favourites, addToFavourites } = useContext(MoviesContext);
+  if (favourites.find((id) => id === movie.id)) {
+    movie.favourite = true;
+  } else {
+    movie.favourite = false;
+  }
+
   const handleAddToFavourite = (e) => {
     e.preventDefault();
-    props.selectFavourite(movie.id);
+    addToFavourites(movie);
   };
   return (
     <Card className={classes.card}>
@@ -43,7 +50,7 @@ export default function MovieCard(props) {
         }
         title={
           <Typography variant='h5' component='p'>
-            {movie.title}{' '}
+            {movie.title}{" "}
           </Typography>
         }
       />
@@ -66,7 +73,7 @@ export default function MovieCard(props) {
           <Grid item xs={6}>
             <Typography variant='h6' component='p'>
               <StarRateIcon fontSize='small' />
-              {'  '} {movie.vote_average}{' '}
+              {"  "} {movie.vote_average}{" "}
             </Typography>
           </Grid>
         </Grid>
