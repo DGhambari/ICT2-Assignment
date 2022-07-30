@@ -1,33 +1,34 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-
-import MenuIcon from "@material-ui/icons/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import { useNavigate, NavLink } from "react-router-dom";
-import { useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import { useNavigate, NavLink } from 'react-router-dom';
+import { useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
   appbar: {
-    backgroundColor: "#080426",
+    backgroundColor: '#080426',
   },
   inactiveLink: {
-    color: "white",
+    color: 'white',
     padding: theme.spacing(1),
-    fontSize: "1.5rem",
+    fontSize: '1.5rem',
+    textDecoration: 'None',
   },
   activeLink: {
-    color: "black",
+    color: 'white',
     padding: theme.spacing(1),
-    fontSize: "1.5rem",
+    fontSize: '1.5rem',
+    textDecoration: 'None',
   },
 }));
 
@@ -36,15 +37,15 @@ const SiteHeader = () => {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const open = Boolean(anchorEl);
   const menuOptions = [
-    { label: "Home", path: "/" },
-    { label: "Upcoming", path: "/movies/upcoming" },
-    { label: "Favourites", path: "/movies/favourites" },
-    { label: "Option 3", path: "/" },
-    { label: "Option 4", path: "/" },
+    { label: 'Home', path: '/' },
+    { label: 'Upcoming', path: '/movies/upcoming' },
+    { label: 'Favourites', path: '/movies/favourites' },
+    { label: 'Option 3', path: '/' },
+    { label: 'Option 4', path: '/' },
   ];
 
   const handleMenuSelect = (pageURL) => {
@@ -85,13 +86,13 @@ const SiteHeader = () => {
                 id='menu-appbar'
                 anchorEl={anchorEl}
                 anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
+                  vertical: 'top',
+                  horizontal: 'right',
                 }}
                 keepMounted
                 transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
+                  vertical: 'top',
+                  horizontal: 'right',
                 }}
                 open={open}
                 onClose={() => setAnchorEl(null)}
