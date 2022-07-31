@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -7,73 +7,67 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+// import FavoriteIcon from '@material-ui/icons/Favorite';
 import CalendarIcon from '@material-ui/icons/CalendarTodayTwoTone';
-import StarRateIcon from '@material-ui/icons/StarRate';
+// import StarRateIcon from '@material-ui/icons/StarRate';
 import Grid from '@material-ui/core/Grid';
 import { Link } from 'react-router-dom';
-import Avatar from '@material-ui/core/Avatar';
-import { MoviesContext } from '../../contexts/moviesContext';
+// import Avatar from '@material-ui/core/Avatar';
+// import { MoviesContext } from '../../contexts/moviesContext';
 
 const useStyles = makeStyles({
-  card: { maxWidth: 345},
+  card: { maxWidth: 345 },
   media: { height: 500 },
-  avatar: {},
+  //   avatar: {},
 });
 
-export default function MovieCard({ movie, action }) {
+export default function ActorCard({ actor, action }) {
   const classes = useStyles();
-  const { favourites } = useContext(MoviesContext);
-  if (favourites.find((id) => id === movie.id)) {
-    movie.favourite = true;
-  } else {
-    movie.favourite = false;
-  }
+  //   const { favourites } = useContext(MoviesContext);
+  //   if (favourites.find((id) => id === movie.id)) {
+  //     movie.favourite = true;
+  //   } else {
+  //     movie.favourite = false;
+  //   }
 
   return (
     <Card className={classes.card}>
       <CardHeader
         className={classes.header}
-        avatar={
-          movie.favourite ? (
-            <Avatar className={classes.avatar}>
-              <FavoriteIcon />
-            </Avatar>
-          ) : null
-        }
+        // avatar={
+        //   actor.name ? (
+        //     <Avatar className={classes.avatar}>
+        //       <FavoriteIcon />
+        //     </Avatar>
+        //   ) : null
+        // }
         title={
           <Typography variant='h5' component='p'>
-            {movie.title}{' '}
+            {actor.name}{' '}
           </Typography>
         }
       />
       <CardMedia
         className={classes.media}
-        image={
-          movie.poster_path
-            ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-            : `${process.env.PUBLIC_URL}/assets/film-poster-placeholder.png`
-        }
+        // image={
+        //   actor.poster_path
+        //     ? `https://image.tmdb.org/t/p/w500/${actor.poster_path}`
+        //     : `${process.env.PUBLIC_URL}/assets/film-poster-placeholder.png`
+        // }
       />
       <CardContent>
         <Grid container>
           <Grid item xs={6}>
             <Typography variant='h6' component='p'>
               <CalendarIcon fontSize='small' />
-              {movie.release_date}
-            </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography variant='h6' component='p'>
-              <StarRateIcon fontSize='small' />
-              {'  '} {movie.vote_average}{' '}
+              {actor.birthday}
             </Typography>
           </Grid>
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        {action(movie)}
-        <Link to={`/movies/${movie.id}`}>
+        {action(actor)}
+        <Link to={`/actor/${actor.id}`}>
           <Button variant='outlined' size='medium' color='primary'>
             More Info ...
           </Button>
