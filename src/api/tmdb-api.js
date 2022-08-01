@@ -122,9 +122,7 @@ export const getLatestActors = () => {
     });
 };
 
-export const getActorImages = ({ queryKey }) => {
-  const [, idPart] = queryKey;
-  const { id } = idPart;
+export const getActorImages = (id) => {
   return fetch(
     `https://api.themoviedb.org/3/person/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
   )

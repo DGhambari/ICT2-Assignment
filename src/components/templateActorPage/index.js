@@ -52,7 +52,7 @@ const TemplateActorPage = ({ actor, children }) => {
       <Grid container spacing={5} style={{ padding: '15px' }}>
         <Grid item xs={3}>
           <div className={classes.imageListRoot}>
-            {/* <ImageList rowHeight={500} className={classes.gridList} cols={1}>
+            <ImageList rowHeight={500} className={classes.gridList} cols={1}>
               {images.map((image) => (
                 <ImageListItem key={image.file_path} cols={1}>
                   <img
@@ -61,7 +61,7 @@ const TemplateActorPage = ({ actor, children }) => {
                   />
                 </ImageListItem>
               ))}
-            </ImageList> */}
+            </ImageList>
           </div>
         </Grid>
 

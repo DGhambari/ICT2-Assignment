@@ -12,13 +12,13 @@ import CalendarIcon from '@material-ui/icons/CalendarTodayTwoTone';
 // import StarRateIcon from '@material-ui/icons/StarRate';
 import Grid from '@material-ui/core/Grid';
 import { Link } from 'react-router-dom';
-// import Avatar from '@material-ui/core/Avatar';
+import Avatar from '@material-ui/core/Avatar';
 // import { MoviesContext } from '../../contexts/moviesContext';
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
   media: { height: 500 },
-  //   avatar: {},
+  avatar: {},
 });
 
 export default function ActorCard({ actor, action }) {
@@ -34,13 +34,9 @@ export default function ActorCard({ actor, action }) {
     <Card className={classes.card}>
       <CardHeader
         className={classes.header}
-        // avatar={
-        //   actor.name ? (
-        //     <Avatar className={classes.avatar}>
-        //       <FavoriteIcon />
-        //     </Avatar>
-        //   ) : null
-        // }
+        avatar={
+          actor.name ? <Avatar className={classes.avatar}></Avatar> : null
+        }
         title={
           <Typography variant='h5' component='p'>
             {actor.name}{' '}
