@@ -1,19 +1,17 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import ActorDetails from '../components/actorDetails';
-import PageTemplate from '../components/templateActorPage';
+import PageTemplate from '../components/templateActorListPage';
 import { getPopularActors } from '../api/tmdb-api';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
+import { getActorImages } from '../api/tmdb-api';
+import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
 
 const PopularActorsPage = (props) => {
-  const { id } = useParams();
-  const {
-    data: actor,
-    error,
-    isLoading,
-    isError,
-  } = useQuery(['actor', { id: id }], getPopularActors);
+  const { data, error, isLoading, isError } = useQuery(
+    'actors',
+    getPopularActors,
+    getActorImages
+  );
 
   if (isLoading) {
     return <Spinner />;
@@ -23,19 +21,16 @@ const PopularActorsPage = (props) => {
     return <h1>{error.message}</h1>;
   }
 
+  const actor = data.results;
+
   return (
-    <>
-      {actor ? (
-        <>
-          <PageTemplate actor={actor}>
-            <ActorDetails actor={actor} />
-          </PageTemplate>
-        </>
-      ) : (
-        <p>Waiting for popular actor details</p>
-      )}
-    </>
+    <PageTemplate
+      title='Popular Actors'
+      actor={actor}
+      action={(actor) => {
+        return <AddToFavouritesIcon actors={actor} />;
+      }}
+    />
   );
 };
-
 export default PopularActorsPage;

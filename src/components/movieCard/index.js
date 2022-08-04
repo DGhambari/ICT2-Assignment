@@ -16,7 +16,11 @@ import Avatar from '@material-ui/core/Avatar';
 import { MoviesContext } from '../../contexts/moviesContext';
 
 const useStyles = makeStyles({
-  card: { maxWidth: 345},
+  card: {
+    maxWidth: 345,
+    backgroundColor: '#0A0F1F',
+    color: '#d2d2d4',
+  },
   media: { height: 500 },
   avatar: {},
 });
@@ -46,6 +50,7 @@ export default function MovieCard({ movie, action }) {
             {movie.title}{' '}
           </Typography>
         }
+        style={{ height: 70 }}
       />
       <CardMedia
         className={classes.media}

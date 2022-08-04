@@ -17,18 +17,22 @@ const useStyles = makeStyles((theme) => ({
   },
   appbar: {
     backgroundColor: '#080426',
+    fontFamily: 'Arial',
+    color: '#d2d2d2'
   },
   inactiveLink: {
     color: 'white',
     padding: theme.spacing(1),
-    fontSize: '1.5rem',
+    fontSize: '1.3rem',
     textDecoration: 'None',
+    color: '#d2d2d2'
   },
   activeLink: {
     color: 'white',
     padding: theme.spacing(1),
-    fontSize: '1.5rem',
+    fontSize: '1.3rem',
     textDecoration: 'None',
+    color: '#d2d2d2'
   },
 }));
 
@@ -44,8 +48,7 @@ const SiteHeader = () => {
     { label: 'Home', path: '/' },
     { label: 'Upcoming', path: '/movies/upcoming' },
     { label: 'Favourites', path: '/movies/favourites' },
-    { label: 'Latest Actor', path: '/person/latest' },
-    { label: 'Popular Actor', path: '/person/popular' },
+    { label: 'Popular Actors', path: '/person/popular' },
   ];
 
   const handleMenuSelect = (pageURL) => {
@@ -79,6 +82,7 @@ const SiteHeader = () => {
                 aria-haspopup='true'
                 onClick={handleMenu}
                 color='inherit'
+                fontFamily='Arial'
               >
                 <MenuIcon />
               </IconButton>

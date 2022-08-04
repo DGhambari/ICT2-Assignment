@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ActorDetails = ({ actor }) => {
+const ActorDetails = ({ actors }) => {
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false); // New
 
@@ -51,7 +51,7 @@ const ActorDetails = ({ actor }) => {
       </Typography>
 
       <Typography variant='h6' component='p'>
-        {actor.name}
+        {actors.name}
       </Typography>
       <div className={classes.chipRoot}>
         <Paper component='ul' className={classes.chipSet}>
@@ -62,17 +62,17 @@ const ActorDetails = ({ actor }) => {
               color='primary'
             />
           </li>
-          {/* {actor.genres.map((g) => (
+          {/* {actors.genres.map((g) => (
             <li key={g.name}>
               <Chip label={g.name} className={classes.chip} />
             </li>
           ))} */}
         </Paper>
         <Paper component='ul' className={classes.chipSet}>
-          <Chip icon={<AccessTimeIcon />} label={`${actor.birthday} min.`} />
+          <Chip icon={<AccessTimeIcon />} label={`${actors.birthday} min.`} />
           {/* <Chip
             icon={<MonetizationIcon />}
-            label={`${actor.revenue.toLocaleString()}`}
+            label={`${actors.revenue.toLocaleString()}`}
           /> */}
           {/* <Chip
             icon={<StarRate />}

@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-// import MovieHeader from "../headerMovie";
+import React from 'react';
+import ActorHeader from '../headerActor';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
@@ -29,6 +29,7 @@ const TemplateActorPage = ({ actor, children }) => {
     ['images', { id: actor.id }],
     getActorImages
   );
+  console.log(actor.id);
 
   if (isLoading) {
     return <Spinner />;
@@ -37,18 +38,12 @@ const TemplateActorPage = ({ actor, children }) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  const images = data.posters;
-
-  // useEffect(() => {
-  //   getActorImages(actor.id).then((images) => {
-  //     setImages(images);
-  //   });
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  const images = data.profiles;
+  console.log(images);
 
   return (
     <div className={classes.root}>
-      {/* <ActorHeader movie={actor} /> */}
+      <ActorHeader movie={actor} />
       <Grid container spacing={5} style={{ padding: '15px' }}>
         <Grid item xs={3}>
           <div className={classes.imageListRoot}>
@@ -57,7 +52,7 @@ const TemplateActorPage = ({ actor, children }) => {
                 <ImageListItem key={image.file_path} cols={1}>
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
-                    alt={image.poster_path}
+                    alt={image.file_path}
                   />
                 </ImageListItem>
               ))}

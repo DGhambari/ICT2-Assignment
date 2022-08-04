@@ -19,8 +19,8 @@ export default {
 export const Basic = () => {
   return (
     <ActorCard
-      actor={SampleActor}
-      action={(actor) => <AddToFavoritesIcon actor={actor} />}
+      actors={SampleActor}
+      action={(actor) => <AddToFavoritesIcon actors={actor} />}
       taging={(actor) => null}
     />
   );
@@ -28,11 +28,11 @@ export const Basic = () => {
 Basic.storyName = 'Default';
 
 export const Exceptional = () => {
-  const sampleNoPoster = { ...SampleActor, poster_path: undefined };
+  const sampleNoPoster = { ...SampleActor, profile_path: undefined };
   return (
     <ActorCard
-      actor={sampleNoPoster}
-      action={(actor) => <AddToFavoritesIcon actor={actor} />}
+      actors={sampleNoPoster}
+      action={(actor) => <AddToFavoritesIcon actors={actor} />}
       taging={(actor) => null}
     />
   );

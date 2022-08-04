@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ActorListPageTemplate({ actors, title, action }) {
+function ActorListPageTemplate({ actor, title, action }) {
   const classes = useStyles();
   const [titleFilter, setTitleFilter] = useState('');
   const [genreFilter, setGenreFilter] = useState('0');
@@ -28,7 +28,7 @@ function ActorListPageTemplate({ actors, title, action }) {
 
   const genreId = Number(genreFilter);
 
-  let displayedActors = actors
+  let displayedActors = actor
     .filter((m) => {
       return m.name.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
     })
@@ -48,7 +48,7 @@ function ActorListPageTemplate({ actors, title, action }) {
           <Header title={title} />
         </Grid>
         <Grid item container spacing={5}>
-          <ActorList action={action} actors={displayedActors} />
+          <ActorList action={action} actor={displayedActors} />
         </Grid>
       </Grid>
       <Fab
