@@ -158,3 +158,21 @@ export const getActor = (args) => {
       throw error;
     });
 };
+
+export const getSimilarMovies = (args) => {
+  const [, idPart] = args.queryKey;
+  const { id } = idPart;
+  // const [, idPart] = queryKey;
+  // const { id } = idPart;
+  // console.log('queryKey:', queryKey);
+  console.log('id:', id);
+  console.log('idPart:', idPart);
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+  )
+    .then((res) => res.json())
+    .then((json) => {
+      // console.log(json.results);
+      return json.results;
+    });
+};

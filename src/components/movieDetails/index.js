@@ -10,6 +10,8 @@ import NavigationIcon from '@material-ui/icons/Navigation';
 import Fab from '@material-ui/core/Fab';
 import Drawer from '@material-ui/core/Drawer';
 import MovieReviews from '../movieReviews';
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,7 +56,6 @@ const MovieDetails = ({ movie }) => {
       <Typography variant='h5' component='h3' className={classes.root}>
         Overview
       </Typography>
-
       <Typography variant='h6' component='p' className={classes.root}>
         {movie.overview}
       </Typography>
@@ -95,6 +96,11 @@ const MovieDetails = ({ movie }) => {
         <NavigationIcon />
         Reviews
       </Fab>
+      <Link to={`/movies/${movie.id}/similar`}>
+        <Button variant='contained' size='medium' color='primary'>
+          Similar Movies
+        </Button>
+      </Link>
       <Drawer
         anchor='top'
         open={drawerOpen}

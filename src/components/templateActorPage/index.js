@@ -12,7 +12,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: '#080426',
     paddingTop: theme.spacing(7),
-    color: "#d2d2d4"
+    color: "#d2d2d4",
+    margin: 0,
   },
   imageListRoot: {
     display: 'flex',

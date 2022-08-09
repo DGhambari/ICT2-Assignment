@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: '#080426',
     paddingTop: theme.spacing(7),
+    margin: 0,
   },
   fab: {
     marginTop: theme.spacing(8),
