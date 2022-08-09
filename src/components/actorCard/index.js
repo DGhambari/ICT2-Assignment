@@ -53,10 +53,9 @@ export default function ActorCard({ actor, action }) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        {/* {action(actor)} */}
-        <Link to={`/actors/${actor.id}`}>
-          <Button variant='outlined' size='medium' color='primary'>
-            More Info ...
+        <Link to={`/actor/${actor.id}`}>
+          <Button variant='contained' size='medium' color='primary'>
+            Actor Bio
           </Button>
         </Link>
       </CardActions>

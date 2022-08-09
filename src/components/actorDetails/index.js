@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import MonetizationIcon from '@material-ui/icons/MonetizationOn';
-import StarRate from '@material-ui/icons/StarRate';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import NavigationIcon from '@material-ui/icons/Navigation';
-import Fab from '@material-ui/core/Fab';
-import Drawer from '@material-ui/core/Drawer';
+import PlaceIcon from '@material-ui/icons/Place';
 
 const useStyles = makeStyles((theme) => ({
   chipRoot: {
@@ -29,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     listStyle: 'none',
     padding: theme.spacing(1.5),
     margin: 0,
+    backgroundColor: '#0A0F1F',
   },
   chipLabel: {
     margin: theme.spacing(0.5),
@@ -40,56 +37,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ActorDetails = ({ actors }) => {
+const ActorDetails = ({ actor }) => {
   const classes = useStyles();
-  const [drawerOpen, setDrawerOpen] = useState(false); // New
 
   return (
     <>
       <Typography variant='h5' component='h3'>
         Overview
       </Typography>
-
       <Typography variant='h6' component='p'>
-        {actors.name}
+        {actor.biography}
       </Typography>
       <div className={classes.chipRoot}>
         <Paper component='ul' className={classes.chipSet}>
-          <li>
-            <Chip
-              label='Genres'
-              className={classes.chipLabel}
-              color='primary'
-            />
-          </li>
-          {/* {actors.genres.map((g) => (
-            <li key={g.name}>
-              <Chip label={g.name} className={classes.chip} />
-            </li>
-          ))} */}
-        </Paper>
-        <Paper component='ul' className={classes.chipSet}>
-          <Chip icon={<AccessTimeIcon />} label={`${actors.birthday} min.`} />
-          {/* <Chip
-            icon={<MonetizationIcon />}
-            label={`${actors.revenue.toLocaleString()}`}
-          /> */}
-          {/* <Chip
-            icon={<StarRate />}
-            label={`${movie.vote_average} (${movie.vote_count}`}
-          /> */}
-          {/* <Chip label={`Released: ${movie.release_date}`} /> */}
+          <Chip icon={<AccessTimeIcon />} label={`Birthday: ${actor.birthday} min.`} />
+          <Chip icon={<PlaceIcon />} label={`Place of Birth: ${actor.place_of_birth} min.`} />
         </Paper>
       </div>
-      <Fab
-        color='secondary'
-        variant='extended'
-        onClick={() => setDrawerOpen(true)}
-        className={classes.fab}
-      >
-        <NavigationIcon />
-        Reviews
-      </Fab>
     </>
   );
 };

@@ -10,7 +10,9 @@ import Spinner from '../spinner';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    backgroundColor: '#080426',
     paddingTop: theme.spacing(7),
+    color: "#d2d2d4"
   },
   imageListRoot: {
     display: 'flex',
@@ -29,7 +31,7 @@ const TemplateActorPage = ({ actor, children }) => {
     ['images', { id: actor.id }],
     getActorImages
   );
-  console.log(actor.id);
+  // console.log(actor.id);
 
   if (isLoading) {
     return <Spinner />;
@@ -43,7 +45,7 @@ const TemplateActorPage = ({ actor, children }) => {
 
   return (
     <div className={classes.root}>
-      <ActorHeader movie={actor} />
+      <ActorHeader actor={actor} />
       <Grid container spacing={5} style={{ padding: '15px' }}>
         <Grid item xs={3}>
           <div className={classes.imageListRoot}>

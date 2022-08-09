@@ -11,6 +11,7 @@ import Spinner from '../spinner';
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: theme.spacing(7),
+    backgroundColor: "#080426",
   },
   imageListRoot: {
     display: 'flex',
