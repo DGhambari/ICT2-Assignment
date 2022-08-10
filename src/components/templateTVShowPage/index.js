@@ -1,5 +1,5 @@
 import React from 'react';
-// import TVShowHeader from '../headerTVShow';
+import TVShowHeader from '../headerTVShow';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
@@ -49,15 +49,15 @@ const TemplateTVShowPage = ({ tvShow, children }) => {
 
   return (
     <div className={classes.root}>
-      {/* <TVShowHeader tvShow={tvShow} /> */}
+      <TVShowHeader tvShow={tvShow} />
       <Grid container spacing={5} style={{ padding: '15px' }}>
         <Grid item xs={3}>
           <div className={classes.imageListRoot}>
             <ImageList rowHeight={500} className={classes.gridList} cols={1}>
               {images.map((image) => (
-                <ImageListItem key={image.file_path} cols={1}>
+                <ImageListItem key={image.poster_path} cols={1}>
                   <img
-                    src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
+                    src={`https://image.tmdb.org/t/p/w500/${image.poster_path}`}
                     alt={image.poster_path}
                   />
                 </ImageListItem>

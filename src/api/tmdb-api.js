@@ -194,9 +194,11 @@ export const getPopularTVShows = () => {
 
 export const getTVShowImages = ({ queryKey }) => {
   const [, idPart] = queryKey;
-  const { tv_id } = idPart;
+  const { id } = idPart;
+  console.log(queryKey); 
+  console.log(id);
   return fetch(
-    `https://api.themoviedb.org/3/tv/${tv_id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    `https://api.themoviedb.org/3/tv/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
   )
     .then((response) => {
       if (!response.ok) {

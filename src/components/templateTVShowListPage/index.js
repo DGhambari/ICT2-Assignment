@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import Header from '../headerTVShowList';
+// import Header from '../headerTVShowList';
 // import FilterCard from '../filterMoviesCard'; // ******* Fix **********
 import Grid from '@material-ui/core/Grid';
 import Fab from '@material-ui/core/Fab';
 import Drawer from '@material-ui/core/Drawer';
 import { makeStyles } from '@material-ui/core/styles';
 import TVShowList from '../tvShowList';
+
+import Header from '../headerMovieList';
+import FilterCard from '../filterMoviesCard';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,26 +24,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function TVShowListPageTemplate({ tvShows, title, action }) {
+function TVShowListPageTemplate({ tvShow, title, action }) {
   const classes = useStyles();
-    const [titleFilter, setTitleFilter] = useState('');
-    const [genreFilter, setGenreFilter] = useState('0');
-    const [drawerOpen, setDrawerOpen] = useState(false);
+  const [titleFilter, setTitleFilter] = useState('');
+  const [genreFilter, setGenreFilter] = useState('0');
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-    const genreId = Number(genreFilter);
+  const genreId = Number(genreFilter);
 
-  let displayedTVShows = tvShows
-  .filter((m) => {
-    return m.title.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
-  })
-  .filter((m) => {
-    return genreId > 0 ? m.genre_ids.includes(genreId) : true;
-  });
+  let displayedTVShow = tvShow
+    .filter((m) => {
+      return m.title.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
+    })
+    .filter((m) => {
+      return genreId > 0 ? m.genre_ids.includes(genreId) : true;
+    });
 
-    const handleChange = (type, value) => {
-      if (type === 'title') setTitleFilter(value);
-      else setGenreFilter(value);
-    };
+  const handleChange = (type, value) => {
+    if (type === 'title') setTitleFilter(value);
+    else setGenreFilter(value);
+  };
   return (
     <>
       <Grid container className={classes.root}>
@@ -48,7 +51,7 @@ function TVShowListPageTemplate({ tvShows, title, action }) {
           <Header title={title} />
         </Grid>
         <Grid item container spacing={5}>
-          <TVShowList action={action} tvShows={displayedTVShows} />
+          <TVShowList action={action} tvShow={displayedTVShow} />
         </Grid>
       </Grid>
       <Fab
@@ -64,11 +67,11 @@ function TVShowListPageTemplate({ tvShows, title, action }) {
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       >
-        {/* <FilterCard
+        <FilterCard
           onUserInput={handleChange}
           titleFilter={titleFilter}
           genreFilter={genreFilter}
-        /> */}
+        />
       </Drawer>
     </>
   );

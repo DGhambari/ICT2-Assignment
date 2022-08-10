@@ -46,6 +46,8 @@ export default function ActorCard({ actor, action }) {
         <Grid container>
           <Grid item xs={6}>
             <Typography variant='h6' component='p'>
+              {'Popularity: '}
+              <p></p>
               <StarRate fontSize='medium' />
               {actor.popularity}
             </Typography>
@@ -53,7 +55,7 @@ export default function ActorCard({ actor, action }) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        <Link to={`/actor/${actor.id}`}>
+        <Link to={`/actor/${actor.id}`} style={{ textDecoration: 'none' }}>
           <Button variant='contained' size='medium' color='primary'>
             Actor Bio
           </Button>

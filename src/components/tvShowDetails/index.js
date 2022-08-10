@@ -65,7 +65,7 @@ const TVShowDetails = ({ tvShow }) => {
       <Typography variant='h6' component='p' className={classes.root}>
         {tvShow.overview}
       </Typography>
-      <div className={classes.chipRoot}>
+      {/* <div className={classes.chipRoot}>
         <Paper component='ul' className={classes.chipSet}>
           <li>
             <Chip
@@ -95,7 +95,7 @@ const TVShowDetails = ({ tvShow }) => {
           />
           <Chip label={`First Aired: ${tvShow.first_air_date}`} />
         </Paper>
-      </div>
+      </div> */}
       {/* <Fab
         color='secondary'
         variant='extended'

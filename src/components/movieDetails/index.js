@@ -54,7 +54,7 @@ const MovieDetails = ({ movie }) => {
   return (
     <>
       <Link to={`/movies/${movie.id}/similar`} style={{textDecoration: "none"}}>
-        <Button variant='contained' size='medium' color='#d2d2d2'>
+        <Button variant='contained' size='medium' color='primary'>
           Similar Movies
         </Button>
       </Link>

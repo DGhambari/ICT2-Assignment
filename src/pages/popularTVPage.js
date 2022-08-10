@@ -1,14 +1,14 @@
 import React from 'react';
-import PageTemplate from '../components/templateActorListPage';
+import PageTemplate from '../components/templateTVShowListPage';
 import { getPopularTVShows } from '../api/tmdb-api';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import { getTVShowImages } from '../api/tmdb-api';
 import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
 
-const PopularActorsPage = (props) => {
+const PopularTVShowPage = (props) => {
   const { data, error, isLoading, isError } = useQuery(
-    'actors',
+    'tvShow',
     getPopularTVShows,
     getTVShowImages
   );
@@ -33,4 +33,4 @@ const PopularActorsPage = (props) => {
     />
   );
 };
-export default PopularActorsPage;
+export default PopularTVShowPage;

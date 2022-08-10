@@ -78,9 +78,9 @@ export default function MovieCard({ movie, action }) {
       </CardContent>
       <CardActions disableSpacing>
         {action(movie)}
-        <Link to={`/movies/${movie.id}`}>
-          <Button variant='outlined' size='medium' color='primary'>
-            More Info ...
+        <Link to={`/movies/${movie.id}`} style={{ textDecoration: 'none' }}>
+          <Button variant='contained' size='medium' color='primary'>
+            More Info
           </Button>
         </Link>
       </CardActions>
