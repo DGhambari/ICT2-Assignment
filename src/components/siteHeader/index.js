@@ -18,21 +18,21 @@ const useStyles = makeStyles((theme) => ({
   appbar: {
     backgroundColor: '#080426',
     fontFamily: 'Arial',
-    color: '#d2d2d2'
+    color: '#d2d2d2',
   },
   inactiveLink: {
     color: 'white',
     padding: theme.spacing(1),
     fontSize: '1.3rem',
     textDecoration: 'None',
-    color: '#d2d2d2'
+    color: '#d2d2d2',
   },
   activeLink: {
     color: 'white',
     padding: theme.spacing(1),
     fontSize: '1.3rem',
     textDecoration: 'None',
-    color: '#d2d2d2'
+    color: '#d2d2d2',
   },
 }));
 
@@ -49,6 +49,7 @@ const SiteHeader = () => {
     { label: 'Upcoming', path: '/movies/upcoming' },
     { label: 'Favourites', path: '/movies/favourites' },
     { label: 'Popular Actors', path: '/person/popular' },
+    { label: 'TV Shows', path: '/tv/popular' },
   ];
 
   const handleMenuSelect = (pageURL) => {

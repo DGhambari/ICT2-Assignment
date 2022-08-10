@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import NavigationIcon from '@material-ui/icons/Navigation';
 import Fab from '@material-ui/core/Fab';
 import Drawer from '@material-ui/core/Drawer';
-import MovieReviews from '../movieReviews';
+// import TVShowReviews from '../tvShowReviews';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
@@ -47,23 +47,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieDetails = ({ movie }) => {
+const TVShowDetails = ({ tvShow }) => {
   const classes = useStyles();
-  const [drawerOpen, setDrawerOpen] = useState(false); // New
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <>
-      <Link to={`/movies/${movie.id}/similar`} style={{textDecoration: "none"}}>
+      {/* <Link to={`/movies/${tvShow.id}/similar`} style={{textDecoration: "none"}}>
         <Button variant='contained' size='medium' color='#d2d2d2'>
-          Similar Movies
+          Similar Shows
         </Button>
       </Link>
-      <p></p>
+      <p></p> */}
       <Typography variant='h5' component='h3' className={classes.root}>
         Overview
       </Typography>
       <Typography variant='h6' component='p' className={classes.root}>
-        {movie.overview}
+        {tvShow.overview}
       </Typography>
       <div className={classes.chipRoot}>
         <Paper component='ul' className={classes.chipSet}>
@@ -74,26 +74,29 @@ const MovieDetails = ({ movie }) => {
               color='primary'
             />
           </li>
-          {movie.genres.map((g) => (
+          {tvShow.genres.map((g) => (
             <li key={g.name}>
               <Chip label={g.name} className={classes.chip} />
             </li>
           ))}
         </Paper>
         <Paper component='ul' className={classes.chipSet}>
-          <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
+          <Chip
+            icon={<AccessTimeIcon />}
+            label={`Run Time: ${tvShow.episode_run_time} min.`}
+          />
           <Chip
             icon={<MonetizationIcon />}
-            label={`${movie.revenue.toLocaleString()}`}
+            label={`${tvShow.revenue.toLocaleString()}`}
           />
           <Chip
             icon={<StarRate />}
-            label={`${movie.vote_average} (${movie.vote_count}`}
+            label={`${tvShow.vote_average} (${tvShow.vote_count}`}
           />
-          <Chip label={`Released: ${movie.release_date}`} />
+          <Chip label={`First Aired: ${tvShow.first_air_date}`} />
         </Paper>
       </div>
-      <Fab
+      {/* <Fab
         color='secondary'
         variant='extended'
         onClick={() => setDrawerOpen(true)}
@@ -101,16 +104,16 @@ const MovieDetails = ({ movie }) => {
       >
         <NavigationIcon />
         Reviews
-      </Fab>
+      </Fab> */}
 
-      <Drawer
+      {/* <Drawer
         anchor='top'
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       >
-        <MovieReviews movie={movie} />
-      </Drawer>
+        <TVShowReviews tvShow={tvShow} />
+      </Drawer> */}
     </>
   );
 };
-export default MovieDetails;
+export default TVShowDetails;

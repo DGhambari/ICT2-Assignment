@@ -14,6 +14,7 @@ import UpcomingMoviesPage from './pages/upcomingMoviesPage';
 import PopularActorsPage from './pages/popularActorsPage';
 import ActorDetailsPage from './pages/actorDetailsPage';
 import SimilarMoviesPage from './pages/similarMoviesPage';
+import PopularTVPage from './pages/popularTVPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -44,7 +45,8 @@ const App = () => {
             <Route path='/person/popular' element={<PopularActorsPage />} />
             <Route path='/reviews/form' element={<AddMovieReviewPage />} />
             <Route path='/actor/:id' element={<ActorDetailsPage />} />
-            <Route path='/movies/:id/similar' element={<SimilarMoviesPage />} />           
+            <Route path='/movies/:id/similar' element={<SimilarMoviesPage />} />   
+            <Route path='/tv/popular' element={<PopularTVPage/>} />         
           </Routes>
         </MoviesContextProvider>
       </BrowserRouter>

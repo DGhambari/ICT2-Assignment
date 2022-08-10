@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import Header from '../headerMovieList';
-import FilterCard from '../filterMoviesCard';
+import Header from '../headerTVShowList';
+// import FilterCard from '../filterMoviesCard'; // ******* Fix **********
 import Grid from '@material-ui/core/Grid';
 import Fab from '@material-ui/core/Fab';
 import Drawer from '@material-ui/core/Drawer';
 import { makeStyles } from '@material-ui/core/styles';
-import ActorList from '../actorList';
+import TVShowList from '../tvShowList';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: '#080426',
     paddingTop: theme.spacing(7),
   },
+
   fab: {
     marginTop: theme.spacing(8),
     position: 'fixed',
@@ -20,27 +21,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ActorListPageTemplate({ actor, title, action }) {
+function TVShowListPageTemplate({ tvShows, title, action }) {
   const classes = useStyles();
-  const [titleFilter, setTitleFilter] = useState('');
-  const [genreFilter, setGenreFilter] = useState('0');
-  const [drawerOpen, setDrawerOpen] = useState(false);
+    const [titleFilter, setTitleFilter] = useState('');
+    const [genreFilter, setGenreFilter] = useState('0');
+    const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const genreId = Number(genreFilter);
+    const genreId = Number(genreFilter);
 
-  let displayedActors = actor
-    .filter((m) => {
-      return m.name.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
-    })
-    .filter((m) => {
-      return genreId > 0 ? m.genre_ids.includes(genreId) : true;
-    });
+  let displayedTVShows = tvShows
+  .filter((m) => {
+    return m.title.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
+  })
+  .filter((m) => {
+    return genreId > 0 ? m.genre_ids.includes(genreId) : true;
+  });
 
-  const handleChange = (type, value) => {
-    if (type === 'title') setTitleFilter(value);
-    else setGenreFilter(value);
-  };
-
+    const handleChange = (type, value) => {
+      if (type === 'title') setTitleFilter(value);
+      else setGenreFilter(value);
+    };
   return (
     <>
       <Grid container className={classes.root}>
@@ -48,7 +48,7 @@ function ActorListPageTemplate({ actor, title, action }) {
           <Header title={title} />
         </Grid>
         <Grid item container spacing={5}>
-          <ActorList action={action} actor={displayedActors} />
+          <TVShowList action={action} tvShows={displayedTVShows} />
         </Grid>
       </Grid>
       <Fab
@@ -64,13 +64,13 @@ function ActorListPageTemplate({ actor, title, action }) {
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       >
-        <FilterCard
+        {/* <FilterCard
           onUserInput={handleChange}
           titleFilter={titleFilter}
           genreFilter={genreFilter}
-        />
+        /> */}
       </Drawer>
     </>
   );
 }
-export default ActorListPageTemplate;
+export default TVShowListPageTemplate;
