@@ -18,16 +18,16 @@ const SimilarMoviesPage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  const movies = data.results;
+  const movie = data.results;
 
-  // These three lines are redundant; we will replace them later.
-  const favourites = movies.filter((m) => m.favourite);
-  localStorage.setItem('favourites', JSON.stringify(favourites));
+  // // These three lines are redundant; we will replace them later.
+  // const favourites = movies.filter((m) => m.favourite);
+  // localStorage.setItem('favourites', JSON.stringify(favourites));
 
   return (
     <PageTemplate
       title='Similar Movies'
-      movies={movies}
+      movie={movie}
       action={(movie) => {
         return <AddToFavouritesIcon movie={movie} />;
       }}

@@ -53,11 +53,11 @@ export default function TVShowCard({ tvShow, action }) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        {/* <Link to={`/tv/${tvShow.id}`} style={{textDecoration: "none"}}>
+        <Link to={`/tv/${tvShow.id}`} style={{textDecoration: "none"}}>
           <Button variant='contained' size='medium' color='primary'>
             TV Show Details
           </Button>
-        </Link> */}
+        </Link>
       </CardActions>
     </Card>
   );

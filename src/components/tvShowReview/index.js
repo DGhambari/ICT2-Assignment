@@ -8,12 +8,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieReview = ({ review }) => {
+const TVShowReview = ({ review }) => {
   const classes = useStyles();
   return (
     <>
       <Typography variant='h5' component='h3' className={classes.root}>
-        Review By: {review.author}
+      Review By: {review.author}
       </Typography>
       <Typography variant='h6' component='p' className={classes.root}>
         {review.content}
@@ -21,4 +21,4 @@ const MovieReview = ({ review }) => {
     </>
   );
 };
-export default MovieReview;
+export default TVShowReview;

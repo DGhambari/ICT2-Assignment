@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     padding: theme.spacing(1.5),
     backgroundColor: '#0A0F1F',
-    color: '#d2d2d2'
+    color: '#d2d2d2',
   },
   tagLine: {
     fontSize: '1.5rem',
@@ -35,7 +35,7 @@ const TVShowHeader = (props) => {
       </IconButton>
 
       <Typography variant='h4' component='h3'>
-        {tvShow.title}
+        {tvShow.name}{' '}
         <a href={tvShow.homepage}>
           <HomeIcon color='primary' />
         </a>

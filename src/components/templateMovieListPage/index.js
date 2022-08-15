@@ -6,6 +6,7 @@ import Fab from "@material-ui/core/Fab";
 import Drawer from "@material-ui/core/Drawer";
 import { makeStyles } from "@material-ui/core/styles";
 import MovieList from "../movieList";
+import Pagination from "../pagination";
 
 const useStyles = makeStyles((theme) => ({
   root: {

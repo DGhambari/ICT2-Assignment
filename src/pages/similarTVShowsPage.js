@@ -1,16 +1,14 @@
 import React from 'react';
 import PageTemplate from '../components/templateTVShowListPage';
-import { getPopularTVShows } from '../api/tmdb-api';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
-import { getTVShow } from '../api/tmdb-api';
+import { getSimilarTVShows } from '../api/tmdb-api';
 import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
 
-const PopularTVShowPage = (props) => {
+const SimilarTVShowsPage = (props) => {
   const { data, error, isLoading, isError } = useQuery(
-    'tvShow',
-    getPopularTVShows,
-    getTVShow
+    'similar',
+    getSimilarTVShows
   );
 
   if (isLoading) {
@@ -20,17 +18,21 @@ const PopularTVShowPage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
+  const tvShows = data.results;
 
-  const tvShow = data.results;
+//   // These three lines are redundant; we will replace them later.
+//   const favourites = tvShow.filter((m) => m.favourite);
+//   localStorage.setItem('favourites', JSON.stringify(favourites));
 
   return (
     <PageTemplate
-      title='Popular TV Shows'
-      tvShow={tvShow}
+      title='Similar TV Shows'
+      tvShows={tvShows}
       action={(tvShow) => {
         return <AddToFavouritesIcon tvShow={tvShow} />;
       }}
     />
   );
 };
-export default PopularTVShowPage;
+
+export default SimilarTVShowsPage;

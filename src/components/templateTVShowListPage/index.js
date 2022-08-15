@@ -6,9 +6,9 @@ import Fab from '@material-ui/core/Fab';
 import Drawer from '@material-ui/core/Drawer';
 import { makeStyles } from '@material-ui/core/styles';
 import TVShowList from '../tvShowList';
-
 import Header from '../headerMovieList';
 import FilterCard from '../filterMoviesCard';
+import Pagination from '../pagination';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,6 +22,11 @@ const useStyles = makeStyles((theme) => ({
     top: theme.spacing(2),
     right: theme.spacing(2),
   },
+  pagination: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    colour: 'secondary',
+  },
 }));
 
 function TVShowListPageTemplate({ tvShow, title, action }) {
@@ -34,7 +39,7 @@ function TVShowListPageTemplate({ tvShow, title, action }) {
 
   let displayedTVShow = tvShow
     .filter((m) => {
-      return m.title.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
+      return m.name.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
     })
     .filter((m) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
@@ -53,6 +58,8 @@ function TVShowListPageTemplate({ tvShow, title, action }) {
         <Grid item container spacing={5}>
           <TVShowList action={action} tvShow={displayedTVShow} />
         </Grid>
+        <Pagination className={classes.pagination}
+        />
       </Grid>
       <Fab
         color='secondary'

@@ -162,8 +162,6 @@ export const getActor = (args) => {
 export const getSimilarMovies = (args) => {
   const [, idPart] = args.queryKey;
   const { id } = idPart;
-  // const [, idPart] = queryKey;
-  // const { id } = idPart;
   // console.log('queryKey:', queryKey);
   console.log('id:', id);
   console.log('idPart:', idPart);
@@ -192,13 +190,12 @@ export const getPopularTVShows = () => {
     });
 };
 
-export const getTVShowImages = ({ queryKey }) => {
-  const [, idPart] = queryKey;
+export const getTVShow = (args) => {
+  console.log(args);
+  const [, idPart] = args.queryKey;
   const { id } = idPart;
-  console.log(queryKey); 
-  console.log(id);
   return fetch(
-    `https://api.themoviedb.org/3/tv/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+    `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
   )
     .then((response) => {
       if (!response.ok) {
@@ -208,5 +205,31 @@ export const getTVShowImages = ({ queryKey }) => {
     })
     .catch((error) => {
       throw error;
+    });
+};
+
+export const getSimilarTVShows = (args) => {
+  const [, idPart] = args.queryKey;
+  const { id } = idPart;
+  // console.log('id:', id);
+  // console.log('idPart:', idPart);
+  return fetch(
+    `https://api.themoviedb.org/3/tv/${id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+  )
+    .then((res) => res.json())
+    .then((json) => {
+      // console.log(json.results);
+      return json.results;
+    });
+};
+
+export const getTVShowReviews = (id) => {
+  return fetch(
+    `https://api.themoviedb.org/3/tv/${id}/reviews?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+  )
+    .then((res) => res.json())
+    .then((json) => {
+      // console.log(json.results);
+      return json.results;
     });
 };

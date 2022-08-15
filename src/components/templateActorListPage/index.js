@@ -51,14 +51,14 @@ function ActorListPageTemplate({ actor, title, action }) {
           <ActorList action={action} actor={displayedActors} />
         </Grid>
       </Grid>
-      <Fab
+      {/* <Fab
         color='secondary'
         variant='extended'
         onClick={() => setDrawerOpen(true)}
         className={classes.fab}
       >
         Filter
-      </Fab>
+      </Fab> */}
       <Drawer
         anchor='left'
         open={drawerOpen}
