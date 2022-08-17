@@ -175,9 +175,9 @@ export const getSimilarMovies = (args) => {
     });
 };
 
-export const getPopularTVShows = () => {
+export const getPopularTVShows = (page) => {
   return fetch(
-    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1`
+    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=${page}`
   )
     .then((response) => {
       if (!response.ok) {
@@ -208,9 +208,9 @@ export const getTVShow = (args) => {
     });
 };
 
-export const getSimilarTVShows = (args) => {
-  const [, idPart] = args.queryKey;
-  const { id } = idPart;
+export const getSimilarTVShows = (id) => {
+  // const [, idPart] = args.queryKey;
+  // const { id } = idPart;
   // console.log('id:', id);
   // console.log('idPart:', idPart);
   return fetch(
@@ -226,6 +226,17 @@ export const getSimilarTVShows = (args) => {
 export const getTVShowReviews = (id) => {
   return fetch(
     `https://api.themoviedb.org/3/tv/${id}/reviews?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+  )
+    .then((res) => res.json())
+    .then((json) => {
+      // console.log(json.results);
+      return json.results;
+    });
+};
+
+export const getActorMovies = (id) => {
+  return fetch(
+    `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
   )
     .then((res) => res.json())
     .then((json) => {

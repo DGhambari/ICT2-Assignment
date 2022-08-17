@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 function TVShowListPageTemplate({ tvShow, title, action }) {
   const classes = useStyles();
   const [titleFilter, setTitleFilter] = useState('');

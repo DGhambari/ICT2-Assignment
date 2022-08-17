@@ -3,12 +3,14 @@ import PageTemplate from '../components/templateTVShowListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import { getSimilarTVShows } from '../api/tmdb-api';
+import { getTVShow } from '../api/tmdb-api';
 import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
 
 const SimilarTVShowsPage = (props) => {
   const { data, error, isLoading, isError } = useQuery(
     'similar',
-    getSimilarTVShows
+    getSimilarTVShows,
+    getTVShow,
   );
 
   if (isLoading) {

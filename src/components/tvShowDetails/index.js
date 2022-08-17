@@ -54,7 +54,7 @@ const TVShowDetails = ({ tvShow }) => {
     <>
       <Link to={`/tv/${tvShow.id}/similar`} style={{ textDecoration: 'none' }}>
         <Button variant='contained' size='medium' color='primary'>
-          Similar Shows
+          Similar TV Shows
         </Button>
       </Link>
       <p></p>
