@@ -125,3 +125,4 @@ The design of this app has been modified to use a darker theme with new pages ad
 [actor_header]: /public/assets/actor_header.png
 [tv_list]: /public/assets/tv_list.png
 [tv_show_card]: /public/assets/tv_show_card.png
+[caching]: /public/assets/caching.png
