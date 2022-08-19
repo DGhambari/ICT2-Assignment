@@ -4,9 +4,9 @@ Name: Darren Ghambari
 
 ## Overview.
 
-[ A paragraph on your React app's concept followed by a bullet-point list of its feature set - only list new/modified features if you are expanding the Movies app. ]
+This application fetches data from TMDB APIs relating to movies, tv shows, actors etc and displays them using React. Individual components were designed with the aid of Storybook.
 
-e.g.
+Additional features from the previous lab exercises are as follows:
 
 - Added a Popular Actors page and corresponding Actor Bio/Details page
 - Added a TV Show and TV Show details page
@@ -21,13 +21,9 @@ REACT_APP_TMDB_KEY=<<your api key here>>
 
 ## App Design.
 
-The design of this app has been
+The design of this app has been modified to use a darker theme with new pages added.
 
 ### Routing/Navigation.
-
-[List the set of routes your app supports - only mention new instances if you expanded the Movies Fan app. State the view linked with each route.]
-
-e.g.
 
 - /movies/:id - detailed information on a specific movie.
 - /movies/upcoming - lists movies soon to be shown in cinemas.
@@ -42,42 +38,91 @@ e.g.
 
 ### Views/Pages.
 
-[ For each view in your app, show a screenshot and caption - only new/modified ones in the case of the Movies Fan app. If necessary, use multiple screenshots to cover a view's full capability.
+> Shows movies from the endpoint Discover.
 
-e.g.
+![][home]
 
-> Lists movies from the Discover endpoint. Filtering on title and genre attributes is supported.
+> Shows in depth detail about a selected movie.
 
-![][d1]
+![][movie_details]
 
-![][d2]
+> Displays reviews for the movie.
 
-> Shows detailed information on a specific movie
+![][movie_reviews]
 
-![][detail]
+> Displays favourited movies.
+
+![][favourite_movies]
+
+> Allows the user to filter the results.
+
+![][movie_filter]
+
+> Displays a list of the most popular actors.
+
+![][popular_actors]
+
+> Displays an actors details.
+
+![][actor_details]
+
+> Displays a list of the most popular tv shows using the Popular TV endpoint.
+
+![][tvshows]
+
+> Displays a tv shows details.
+
+![][tv_details]
+
+> Displays the reviews for a selected tv show.
+
+![][tv_reviews]
 
 ### Component catalogue.
 
-[ Use the Storybook UI to highlight the new components for which you developed stories.]
-e.g.
+> Displays the most relevant information about an actor in an easy to read card format along with a picture.
 
-![][stories]
+![][actor_card]
+
+> Displays the most relevant information about a tv show in an easy to read card format along with a picture.
+
+![][tv_show_card]
+
+> Displays details on the selected actor.
+
+![][actor_details_storybook]
+
+> Displays the actors name in a header.
+
+![][actor_header]
+
+> Displays a list of popular tv shows.
+
+![][tv_list]
 
 ## Caching.
 
-[ List the TMDB server state cached by the app. Include a screenshot(s) of the react-query dev tools to validate your list.]
-
-e.g.
-
 - Discover movies (pagination support)
 - Movie details
-- etc
-- etc
 
 ![][caching]
 
-[d1]: ./public/discover1.png
-[d2]: ./public/discover2.png
-[detail]: ./public/detail.png
-[caching]: ./public/caching.png
+[actor_details]: ./public/actor_details.png
+[favourite_movies]: ./public/favourite_movies.png
+[home]: ./public/home.png
+[movie_details]: ./public/movie_details.png
+[movie_reviews]: ./public/movie_reviews.png
+[movie_filter]: ./public/movie_filter.png
+[popular_actors]: ./public/popular_actors.png
 [stories]: ./public/stories.png
+[tvshows]: ./public/tvshows.png
+[tv_details]: ./public/tv_details.png
+[tv_reviews]: ./public/tv_reviews.png
+[upcoming]: ./public/upcoming.png
+[actor_card]: ./public/actor_card.png
+[tv_card]: ./public/tv_card.png
+[actor_details_storybook]: ./public/actor_details_storybook.png
+[actor_header]: ./public/actor_header.png
+[tv_list]: ./public/tv_list.png
+[tv_show_card]: ./public/tv_show_card.png
+
