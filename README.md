@@ -107,22 +107,20 @@ The design of this app has been modified to use a darker theme with new pages ad
 
 ![][caching]
 
-[actor_details]: /public/assets/actor_details.png
-[favourite_movies]: /public/assets/favourite_movies.png
-[home]: /public/assets/home.png
-[movie_details]: /public/assets/movie_details.png
-[movie_reviews]: /public/assets/movie_reviews.png
-[movie_filter]: /public/assets/movie_filter.png
-[popular_actors]: /public/assets/popular_actors.png
-[stories]: /public/assets/stories.png
-[tvshows]: /public/assets/tvshows.png
-[tv_details]: /public/assets/tv_details.png
-[tv_reviews]: /public/assets/tv_reviews.png
-[upcoming]: /public/assets/upcoming.png
-[actor_card]: /public/assets/actor_card.png
-[tv_card]: /public/assets/tv_card.png
-[actor_details_storybook]: /public/assets/actor_details_storybook.png
-[actor_header]: /public/assets/actor_header.png
-[tv_list]: /public/assets/tv_list.png
-[tv_show_card]: /public/assets/tv_show_card.png
+[actor_details]: /public/assets/actor_details.PNG
+[favourite_movies]: /public/assets/favourite_movies.PNG
+[home]: /public/assets/home.PNG
+[movie_details]: /public/assets/movie_details.PNG
+[movie_reviews]: /public/assets/movie_reviews.PNG
+[movie_filter]: /public/assets/movie_filter.PNG
+[popular_actors]: /public/assets/popular_actors.PNG
+[tvshows]: /public/assets/tvshows.PNG
+[tv_details]: /public/assets/tv_details.PNG
+[tv_reviews]: /public/assets/tv_reviews.PNG
+[upcoming]: /public/assets/upcoming.PNG
+[actor_card]: /public/assets/actor_card.PNG
+[actor_details_storybook]: /public/assets/actor_details_storybook.PNG
+[actor_header]: /public/assets/actor_header.PNG
+[tv_list]: /public/assets/tv_list.PNG
+[tv_show_card]: /public/assets/tv_show_card.PNG
 [caching]: /public/assets/caching.png
